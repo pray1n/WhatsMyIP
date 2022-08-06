@@ -5,6 +5,7 @@ const ShowMap = ({ipInfo}) => {
   const [showInfo, setShowInfo] = useState(false);
   const clickHandler = ()=> {
     setShowInfo (!showInfo)
+    
   }
   if(!ipInfo){
     return <p>Map is Loading...</p>
@@ -28,7 +29,7 @@ IPv4: {ipInfo.ip}
           <button to="/search" className="searchButton" onClick={clickHandler}>More Info</button>
           </div>
           <div>
-            <Countries country={ipInfo.location.country}/>
+            <Countries show={showInfo}country={ipInfo.location.country}/>
           </div>
         <Map height={300} defaultCenter={[ipInfo.location.lat, ipInfo.location.lng]} defaultZoom={11}>
       <Marker width={50} anchor={[ipInfo.location.lat, ipInfo.location.lng]} />

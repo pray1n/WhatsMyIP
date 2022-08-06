@@ -1,6 +1,6 @@
 import react, { useState, useEffect } from "react";
 import ShowCountries from './ShowCountries'
-const Countries = ({ country }) => {
+const Countries = ({ country,show}) => {
   const [data, setData] = useState([]);
   console.log(country);
 
@@ -60,7 +60,7 @@ const Countries = ({ country }) => {
   return (
     
       <div>
-      <ShowCountries data={data}/>
+      <ShowCountries show={show} data={data}/>
       </div>
     
   );
