@@ -8,12 +8,12 @@ function App() {
   const [loadedIP, setLoadedIP] = useState("")
   useEffect(() => { getData()}, [])
   const getData = async () => {
-     
-  
+
+
     try {
     const response = await fetch(`https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_bADom2GJMtoutlcVw7Q9JoRzQWc5O&ipAddress`)
-    console.log("test")
     
+
     if (response.ok) {
       console.log("Reponse is Okay")
       const result = await response.json();
@@ -24,24 +24,34 @@ function App() {
       console.log('Error')
     }
     }
-    
-    
+
+
 
     return(
     <div>
-    <Alert severity="success">Successfully fetched your Data!</Alert>
-    
-    {/* <Map height={450} width={650} defaultCenter={[loadedIP.location.lat, 4.6997]} defaultZoom={11}>
-        <Marker width={45} anchor={[loadedIP.location.lat, 4.6997]} />
+    <Alert severity="success"> Working</Alert>
+
+    {/* <Map height={300} width={450} defaultCenter={[!loadedIP ? "Data is Loading" : loadedIP.location.lat, !loadedIP ? "Data is Loading" : loadedIP.location.lng]} defaultZoom={11}>
+      <Marker width={50} anchor={[!loadedIP ? "Data is Loading" : loadedIP.location.lat, !loadedIP ? "Data is Loading" : loadedIP.location.lng]} />
     </Map>  */}
-    
+
+    {/* <Map height={300} width={450} defaultCenter={[loadedIP.location.lat, loadedIP.location.lng]} defaultZoom={11}>
+      <Marker width={50} anchor={[loadedIP.location.lat, loadedIP.location.lng]} />
+    </Map> */}
+
+    {/* <Map height={300} width={450} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
+      <Marker width={50} anchor={[50.879, 4.6997]} />
+    </Map> */}
+
     <p>{!loadedIP ? "Data is Loading" : loadedIP.ip}</p>
     <p>{!loadedIP ? "Data is Loading" : loadedIP.location.country}</p>
     <p>{!loadedIP ? "Data is Loading" : loadedIP.location.region}</p>
     <p>{!loadedIP ? "Data is Loading" : loadedIP.location.lat}</p>
     <p>{!loadedIP ? "Data is Loading" : loadedIP.location.lng}</p>
-    
-    
+    <p>{!loadedIP ? "Data is Loading" : loadedIP.location.country}</p>
+    <img src="https://flagcdn.com/120x90/de.png"></img>
+
+
     </div>)
 }
 
