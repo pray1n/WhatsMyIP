@@ -1,6 +1,7 @@
 import React ,{useState}from 'react'
 import { Map, Marker } from "pigeon-maps"
 import Countries from './Countries';
+import Button from '@mui/material/Button';
 const ShowMap = ({ipInfo}) => {
   const [showInfo, setShowInfo] = useState(false);
   const clickHandler = ()=> {
@@ -26,7 +27,7 @@ IPv4: {ipInfo.ip}
   alt="South Africa"></img>
   <div className="searchflex">
           
-          <button to="/search" className="searchButton" onClick={clickHandler}>More Info</button>
+          <Button to="/search" className="searchButton" onClick={clickHandler}>More Info</Button>
           </div>
           <div>
             <Countries show={showInfo}country={ipInfo.location.country}/>
